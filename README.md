@@ -39,7 +39,7 @@ Put all this into ~/anywhere/my_terrific_kb. Find the XInput id of your keyboard
 
 # What I have done
 
-Followed the instructions above, swapped the Swedish symbols (`Group2`) for å and ', removed the other symbol (which don't need to be overridden).
+Followed the instructions above, swapped the Swedish symbols (`Group2`) for å and ', removed the other symbols (which don't need to be overridden).
 
 	sudo apt install xinput list
 	xinput list
@@ -67,7 +67,7 @@ The output was:
 
 and the ID to use was `3`:
 
-	xkbcomp -i 3 ~/<my_modified_server_0.xkb> $DISPLAY
+	xkbcomp -i 3 ~/kinesis/kinesis_swe_us.conf $DISPLAY
 
 # Future work
 
@@ -93,3 +93,8 @@ where `Group1` is US layout and `Group2` is swedish.
 ## Create an actual Swedish layout
 
 This is modifying the layout by overriding what already exists in the Swedish layout. Better would be to create a stand-alone swedish layout.
+
+Even worse: it's not actually a swedish layout, it uses groups within a single layout.
+
+One issue now is that I cannot display which layout is active in my status bar: the name displaying there is the string in the section `deault xkb_symbols "this_string"` of my `~/kinesis/kinesis_swe_us.conf`.
+This might help: https://wiki.archlinux.org/index.php/X_KeyBoard_extension
